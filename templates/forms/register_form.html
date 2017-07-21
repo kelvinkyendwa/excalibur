@@ -1,0 +1,56 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet"  href="{% static "build/css/metro.min.css" %}">
+    <link rel="stylesheet"  href="{% static "build/css/metro-colors.min.css" %}">
+    <link rel="stylesheet"  href="{% static "build/css/metro-icons.min.css" %}">
+    <link rel="stylesheet"  href="{% static "build/css/metro-responsive.min.css" %}">
+    <link rel="stylesheet"  href="{% static "build/css/metro-schemes.min.css" %}">
+    <title>Register Here</title>
+  </head>
+  <body>
+    <header class="margin20 no-margin-left no-margin-right">
+        <div class="clear-float">
+
+            <!-- <a class="place-left" href="#" title="">
+                <h1>Excalibur</h1>
+            </a> -->
+        </div>
+
+        <div class="main-menu-wrapper">
+
+                        <ul class="m-menu navy">
+
+                <li><a href="/excalibur/">Home</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="#">Series</a></li>
+                <li>
+                    <a href="#" class="dropdown-toggle">Blogs</a>
+                    <ul  class="d-menu" data-role="dropdown">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Partners</a></li>
+                    </ul>
+                </li>
+                <li class="place-right no-hovered">
+                    <form>
+                        <div class="input-control text" style="width: 250px; margin-right: 10px">
+                            <input type="text" placeholder="Search...">
+                            <button class="button"><span class="mif-search"></span></button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </header>
+      <div class="login-form padding20 block-shadow container">
+    <form class="" action="index.html" method="POST">
+      {{regisrty.as_p}}
+
+    </form>
+
+
+      </div>
+  </body>
+</html>
