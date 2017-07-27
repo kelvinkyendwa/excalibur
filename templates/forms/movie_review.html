@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="{% static "assets/images/excalibur-64x128.png " type="image/x-icon" %}">
+
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;subset=latin">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+  <link rel="stylesheet" href="{% static "assets/bootstrap-material-design-font/css/material.css" %}">
+  <link rel="stylesheet" href="{% static "assets/et-line-font-plugin/style.css" %}">
+  <link rel="stylesheet" href="{% static "assets/tether/tether.min.css" %}">
+  <link rel="stylesheet" href="{% static "assets/bootstrap/css/bootstrap.min.css" %}">
+  <link rel="stylesheet" href="{% static "assets/animate.css/animate.min.css" %}">
+  <link rel="stylesheet" href="{% static "assets/dropdown/css/style.css" %}">
+  <link rel="stylesheet" href="{% static "assets/mobirise/css/mbr-additional.css" type="text/css" %}">
+  <link rel="stylesheet" href="{% static "assets/theme/css/style.css" %}">
+  <link rel="stylesheet" href="{% static "assets/mobirise-gallery/style.css" %}">
+
+
+  <title>Review Movies</title>
+
+</head>
+<body>
+    <br>
+    <br>
+    <div class="container">
+      <h3>Hey, Review a Movie here</h3>
+      <br>
+    <form class="form" method="POST">
+      {{form.as_p}}
+      {% csrf_token %}
+      <input type="submit" name="btn btn-primary" value="Submit">
+    </form>
+    <div>
+  </body>
+</html>

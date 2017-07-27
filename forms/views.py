@@ -3,8 +3,9 @@ from django.views.generic import FormView
 from django.views.generic.list import ListView
 from django.shortcuts import render
 from django.core.mail import send_mail
-from forms.models import Movies,Series,Episode
+from forms.models import Movies,Series,Episode,Genres,Actors
 from . import forms
+from forms.forms import AddActors
 from django.utils import timezone
 
 def register(request):
@@ -21,8 +22,10 @@ def register(request):
             print("Information left:" +reg_form.cleaned_data['text'])
     return render(request,'forms/register_form.html',{'regisrty':reg_form})
 
-class IndexView(TemplateView):
-    template_name = "forms/index.html"
+def index(request):
+    return render(request,'forms/index.html')
+# class IndexView(TemplateView):
+#     template_name = "forms/index.html"
 class MoviesView(TemplateView):
     template_name = "pages/movies.html"
 class SeriesView(ListView):
@@ -45,3 +48,18 @@ def feedback(request):
             print("Email:" +form.cleaned_data['email'])
             print("Information left:" +form.cleaned_data['text'])
     return render(request,'forms/feedback.html',{'form':form})
+
+
+def review_movie(request):
+    form = AddActors()
+
+    if request.method == "POST":
+        form = AddActors(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+
+        else:
+            print("nada")
+    return render(request,'forms/movie_review.html',{'form':form})

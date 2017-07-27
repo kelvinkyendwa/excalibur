@@ -1,5 +1,6 @@
 from django import forms
 from django.core import validators
+from forms.models import Movies,Genres,Actors
 
 
 class FeedbackForm(forms.Form):
@@ -24,3 +25,8 @@ class RegisterForm(forms.Form):
     name = forms.CharField()
     email = forms.EmailField()
     text = forms.CharField(widget=forms.Textarea)
+
+class AddActors(forms.ModelForm):
+    class Meta:
+        model = Actors
+        fields ='__all__'
