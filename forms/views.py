@@ -2,11 +2,13 @@ from django.views.generic import TemplateView
 from django.views.generic import FormView
 from django.views.generic.list import ListView
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 from forms.models import Movies,Series,Episode,Genres,Actors
 from . import forms
 from forms.forms import AddActors
 from django.utils import timezone
+
 
 def register(request):
     reg_form = forms.RegisterForm()
@@ -27,6 +29,7 @@ def index(request):
 # class IndexView(TemplateView):
 #     template_name = "forms/index.html"
 class MoviesView(TemplateView):
+    model = Movies
     template_name = "pages/movies.html"
 class SeriesView(ListView):
     template_name = "pages/series.html"
@@ -50,7 +53,7 @@ def feedback(request):
     return render(request,'forms/feedback.html',{'form':form})
 
 
-def review_movie(request):
+def add_actors(request):
     form = AddActors()
 
     if request.method == "POST":
@@ -58,8 +61,8 @@ def review_movie(request):
 
         if form.is_valid():
             form.save(commit=True)
-            return index(request)
+            return HttpResponseRedirect('excalibur/movies/')
 
         else:
             print("nada")
-    return render(request,'forms/movie_review.html',{'form':form})
+    return render(request,'forms/add_actors.html',{'form':form})

@@ -36,6 +36,7 @@ class Series(models.Model):
     release_date = models.DateField(max_length=8, null=True)
     General_review = models.TextField(max_length=500, null=True)
     actors = models.ManyToManyField(Actors)
+    logo_url = models.CharField(max_length=100, null=True)
     series_logo = models.ImageField(null=True)
     def __str__(self):
         return self.series_name
