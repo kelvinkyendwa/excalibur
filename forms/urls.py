@@ -9,6 +9,6 @@ from django.shortcuts import render
 urlpatterns = [
     url(r'^$', IndexView.as_view(), name='index'),
     url(r'^movies/', MoviesView.as_view(), name= 'movies'),
-    url(r'^review/(?P<pk>\d+)/$', Movie_detail.as_view(template_name = "pages/movie_detail.html"), name= 'movie_detail'),
+    url(r'^review/(?P<pk>\d+)/$', Movie_detail.as_view(), name= 'movie_detail'),
     url(r'^series/', SeriesView.as_view(), name='series'),
 ]
