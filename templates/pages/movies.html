@@ -3,89 +3,59 @@
 {% load staticfiles %}
 {% block content %}
 
-<section class="engine"><a rel="external" href="#">Mobirise Web Page Maker</a></section><section class="mbr-section article mbr-after-navbar" id="msg-box8-b" data-bg-video="https://www.youtube.com/watch?v=uNCr7NdOJgw" style="padding-top: 120px; padding-bottom: 120px;">
+
+<section class="engine"><a rel="external" href="#">excalibur</a></section><section class="mbr-section article mbr-parallax-background mbr-after-navbar" id="msg-box8-n" style="background-image: url(assets/images/desert.jpg); padding-top: 120px; padding-bottom: 120px;">
 
     <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(34, 34, 34);">
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-xs-center">
-                <h3 class="mbr-section-title display-2">MOVIES</h3>
-                <div class="lead"><p>The truth shall set thee free</p></div>
+                <h3 class="mbr-section-title display-2">Movies</h3>
+                <div class="lead"><p>Movie Reviews.</p></div>
 
             </div>
         </div>
     </div>
 
 </section>
-
-<section class="mbr-cards mbr-section mbr-section-nopadding" id="features3-e" style="background-color: rgb(255, 255, 255);">
-
-
-
-    <div class="mbr-cards-row row">
-        <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 80px; padding-bottom: 80px;">
-            <div class="container">
-              <div class="card cart-block">
-                  <div class="card-img"><img src="{% static "assets/images/johnwick1.jpg" %}" class="card-img-top"></div>
-                  <div class="card-block">
-                    <h4 class="card-title">John Wick</h4>
-                    <h5 class="card-subtitle">Action</h5>
-                    <p class="card-text">After returning to the criminal underworld to repay a debt, John Wick discovers that a large bounty has been put on his life.</p>
-                    <div class="card-btn"><a href="#" class="btn btn-primary">Review</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 80px; padding-bottom: 80px;">
-            <div class="container">
-                <div class="card cart-block">
-                    <div class="card-img"><img src="{% static "assets/images/Kingsman1.jpg" %}" class="card-img-top"></div>
-                    <div class="card-block">
-                        <h4 class="card-title">Kingsman&nbsp; : the golden circle</h4>
-                        <h5 class="card-subtitle">Action</h5>
-                        <p class="card-text">When their headquarters are destroyed and the world is held hostage, the Kingsman's journey leads them to the discovery of an allied spy organization in the US. These two elite secret organizations must band together to defeat a common enemy</p>
-                        <div class="card-btn"><a href="#" class="btn btn-primary">Review</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 80px; padding-bottom: 80px;">
-            <div class="container">
-                <div class="card cart-block">
-                    <div class="card-img"><img src="{% static "assets/images/wonderwoman1.jpg" %}" class="card-img-top"></div>
-                    <div class="card-block">
-                        <h4 class="card-title">War of the planet of the Apes</h4>
-                        <h5 class="card-subtitle">Thriller</h5>
-                        <p class="card-text">After the apes suffer unimaginable losses, Caesar wrestles with his darker instincts and begins his own mythic quest to avenge his kind.</p>
-                        <div class="card-btn"><a href="#" class="btn btn-primary">Review</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 80px; padding-bottom: 80px;">
-            <div class="container">
-                <div class="card cart-block">
-                    <div class="card-img"><img src="{% static "assets/images/homecoming1.png" %}" class="card-img-top"></div>
-                    <div class="card-block">
-                        <h4 class="card-title">Spiderman : Homecoming</h4>
-                        <h5 class="card-subtitle">Fantasy</h5>
-                        <p class="card-text">Peter Parker, with the help of his mentor Tony Stark, tries to balance his life as an ordinary high school student in New York City while fighting crime as his superhero alter ego Spider-Man when a new threat emerges.</p>
-                        <div class="card-btn"><a href="#" class="btn btn-primary">Review</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-</section>
-
-<footer class="mbr-small-footer mbr-section mbr-section-nopadding" id="footer1-8" style="background-color: rgb(50, 50, 50); padding-top: 1.75rem; padding-bottom: 1.75rem;">
+<br>
+<section class="mbr-section" id="msg-box5-o" style="background-color: rgb(255, 255, 255); padding-top: 0px; padding-bottom: 0px;">
+    {% for kidu in object_list %}
 
     <div class="container">
-        <p class="text-xs-center">Copyright (c) 2016 Afrotech Frenzy.</p>
+        <div class="row">
+            <div class="mbr-table-md-up">
+
+
+
+              <div class="mbr-table-cell col-md-5 text-xs-center text-md-right content-size">
+                  <h3 class="mbr-section-title display-2">
+
+                    {{ kidu.movie_title }} - {{ kidu.movie_rating }} / 10
+
+              </h3>
+                  <div class="lead">
+
+                    <p>{{kidu.movie_description}}</p>
+
+                  </div>
+
+                  <div><a class="btn btn-primary" href="{% url 'movie_detail' pk=kidu.pk %}">MORE</a></div>
+              </div>
+
+
+              <div class="mbr-table-cell mbr-left-padding-md-up mbr-valign-top col-md-7 image-size" style="width: 50%;">
+                  <div class="mbr-figure"><img src="{{kidu.logo_url}}"></div>
+              </div>
+
+            </div>
+        </div>
     </div>
-</footer>
+    {% empty %}
+          <div class="container jumbotron">No Movies yet.</div>
+    {% endfor %}
+</section>
+
 
 {% endblock %}

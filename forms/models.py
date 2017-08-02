@@ -22,6 +22,7 @@ class Movies(models.Model):
      release_date = models.DateField(max_length=8, null=True )
      movie_review = models.TextField(max_length=500, null=True)
      actors = models.ManyToManyField(Actors)
+     logo_url = models.CharField(max_length=100, null=True)
      movie_logo = models.ImageField(null=True)
      def __str__(self):
          return self.movie_title

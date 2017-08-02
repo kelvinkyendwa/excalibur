@@ -1,16 +1,14 @@
 from django.conf.urls import url
 
 # from forms.views import IndexView
-from forms.views import MoviesView,SeriesView
+from forms.views import MoviesView, SeriesView, IndexView, Movie_detail
 from forms import views
 from django.shortcuts import render
 
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
-    url(r'^register/', views.register,name = 'register'),
-    url(r'^actors/', views.add_actors,name = 'actors'),
-    url(r'^feedback/',views.feedback, name='feedback'),
+    url(r'^$', IndexView.as_view(), name='index'),
     url(r'^movies/', MoviesView.as_view(), name= 'movies'),
+    url(r'^review/(?P<pk>\d+)/$', Movie_detail.as_view(template_name = "pages/movie_detail.html"), name= 'movie_detail'),
     url(r'^series/', SeriesView.as_view(), name='series'),
 ]

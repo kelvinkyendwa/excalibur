@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
-from django.views.generic import FormView
+from django.views.generic import FormView, DetailView
 from django.views.generic.list import ListView
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 from forms.models import Movies,Series,Episode,Genres,Actors
@@ -24,13 +24,20 @@ def register(request):
             print("Information left:" +reg_form.cleaned_data['text'])
     return render(request,'forms/register_form.html',{'regisrty':reg_form})
 
-def index(request):
-    return render(request,'forms/index.html')
-# class IndexView(TemplateView):
-#     template_name = "forms/index.html"
-class MoviesView(TemplateView):
-    model = Movies
+# def index(request):
+#     return render(request,'forms/index.html')
+class IndexView(TemplateView):
+    template_name = "forms/index.html"
+class MoviesView(ListView):
+
     template_name = "pages/movies.html"
+    model = Movies
+class Movie_detail(DetailView):
+    model = Movies
+
+    template_name = "pages/movie_detail.html"
+
+
 class SeriesView(ListView):
     template_name = "pages/series.html"
     model = Series
@@ -38,31 +45,3 @@ class SeriesView(ListView):
         context = super(SeriesView, self).get_context_data(**kwargs)
         context['now'] = timezone.now()
         return context
-def feedback(request):
-    form = forms.FeedbackForm()
-
-    if request.method == 'POST':
-        form = forms.FeedbackForm(request.POST)
-
-        if form.is_valid():
-
-            print("validation Success")
-            print("Name:" +form.cleaned_data['name'])
-            print("Email:" +form.cleaned_data['email'])
-            print("Information left:" +form.cleaned_data['text'])
-    return render(request,'forms/feedback.html',{'form':form})
-
-
-def add_actors(request):
-    form = AddActors()
-
-    if request.method == "POST":
-        form = AddActors(request.POST)
-
-        if form.is_valid():
-            form.save(commit=True)
-            return HttpResponseRedirect('excalibur/movies/')
-
-        else:
-            print("nada")
-    return render(request,'forms/add_actors.html',{'form':form})
