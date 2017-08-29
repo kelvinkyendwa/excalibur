@@ -41,7 +41,7 @@
 
                   </div>
 
-                  <div><a class="btn btn-primary" href="{% url 'movie_detail' pk=kidu.pk %}">MORE</a></div>
+                  <div><a class="btn btn-primary" href="{% url 'forms:movie_detail' pk=kidu.pk %}">MORE</a></div>
               </div>
 
 
@@ -51,6 +51,7 @@
 
             </div>
         </div>
+        <hr>
     </div>
     {% empty %}
           <div class="container jumbotron">No Movies yet.</div>

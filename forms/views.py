@@ -45,3 +45,8 @@ class SeriesView(ListView):
         context = super(SeriesView, self).get_context_data(**kwargs)
         context['now'] = timezone.now()
         return context
+
+class Series_detail(DetailView):
+    model = Episode
+
+    template_name = "pages/series_detail.html"
