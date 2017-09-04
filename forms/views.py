@@ -4,7 +4,7 @@ from django.views.generic.list import ListView
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
-from forms.models import Movies,Series,Episode,Genres,Actors
+from forms.models import Movies,Genres,Actors
 from . import forms
 from forms.forms import AddActors
 from django.utils import timezone
@@ -36,17 +36,3 @@ class Movie_detail(DetailView):
     model = Movies
 
     template_name = "pages/movie_detail.html"
-
-
-class SeriesView(ListView):
-    template_name = "pages/series.html"
-    model = Series
-    def get_context_data(self, **kwargs):
-        context = super(SeriesView, self).get_context_data(**kwargs)
-        context['now'] = timezone.now()
-        return context
-
-class Series_detail(DetailView):
-    model = Episode
-
-    template_name = "pages/series_detail.html"
