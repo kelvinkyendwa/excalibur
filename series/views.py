@@ -22,3 +22,7 @@ class Series_detail(DetailView):
     model = Episode
 
     template_name = "pages/series_detail.html"
+    def get_context_data(self, **kwargs):
+        context = super(Series_detail, self).get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context

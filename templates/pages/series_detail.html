@@ -4,71 +4,60 @@
 {% block content %}
 
 
-<section class="engine"><a rel="external" href="#">#</a></section><section class="mbr-section article mbr-parallax-background mbr-after-navbar" id="msg-box8-u" style="background-image: url({{movies.logo_url}}); padding-top: 120px; padding-bottom: 120px;">
+<section class="engine"><a rel="external" href="#">excalibur</a></section><section class="mbr-section article mbr-parallax-background mbr-after-navbar" id="msg-box8-n" style="background-image: url(assets/images/desert.jpg); padding-top: 120px; padding-bottom: 120px;">
 
     <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(34, 34, 34);">
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-xs-center">
-                <h3 class="mbr-section-title display-2"></h3>
-
+                <h3 class="mbr-section-title display-2">Episodes</h3>
+                <div class="lead"><p>Tv Show reviews.</p></div>
 
             </div>
         </div>
     </div>
 
 </section>
-
-<section class="mbr-section mbr-section__container article" id="header3-v" style="background-color: rgb(255, 255, 255); padding-top: 20px; padding-bottom: 20px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <h3 class="mbr-section-title display-2">{{movies.movie_title}}</h3>
-                <small class="mbr-section-subtitle">Kelvin Mitau -posted July 20, 2016</small>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="mbr-section article mbr-section__container" id="content6-w" style="background-color: rgb(255, 255, 255); padding-top: 20px; padding-bottom: 20px;">
+<br>
+<section class="mbr-section" id="msg-box5-o" style="background-color: rgb(255, 255, 255); padding-top: 0px; padding-bottom: 0px;">
+    {% for article in object_list %}
 
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-md-12 lead"><p>{{movies.movie_review}}</p></div>
-            <!-- <div class="col-xs-12 col-md-6 lead"><p>{{movies.movie_description}}</p></div> -->
-        </div>
-    </div>
+            <div class="mbr-table-md-up">
 
-</section>
 
-<section class="mbr-section mbr-section-md-padding" id="social-buttons3-x" style="background-color: rgb(46, 46, 46); padding-top: 90px; padding-bottom: 90px;">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 text-xs-center">
-                <h3 class="mbr-section-title display-2">SHARE THIS REVIEW!</h3>
-                <div>
+              <div class="mbr-table-cell col-md-5 text-xs-center text-md-right content-size">
+                  <h3 class="mbr-section-title display-2">
 
-                  <div class="mbr-social-likes" data-counters="false">
-                    <span class="btn btn-social facebook" title="Share link on Facebook">
-                        <i class="socicon socicon-facebook"></i>
-                    </span>
-                    <span class="btn btn-social twitter" title="Share link on Twitter">
-                        <i class="socicon socicon-twitter"></i>
-                    </span>
-                    <span class="btn btn-social plusone" title="Share link on Google+">
-                        <i class="socicon socicon-googleplus"></i>
-                    </span>
+                    {{ article.ser_name }} - {{ article.episode_name }}
 
+              </h3>
+                  <div class="lead">
+
+                    <p>{{article.episode_review}}</p>
 
                   </div>
 
-                </div>
+
+              </div>
+
+
+              <div class="mbr-table-cell mbr-left-padding-md-up mbr-valign-top col-md-7 image-size" style="width: 50%;">
+                  <div class="mbr-figure"><img src="{{article.logo_url}}"></div>
+              </div>
+
             </div>
         </div>
     </div>
+    {% empty %}
+      <div class="container jumbotron">No Episode to Review yet.</div>
+    {% endfor %}
 </section>
+
+
 
 
 
