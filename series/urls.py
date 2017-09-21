@@ -11,6 +11,6 @@ app_name = 'series'
 urlpatterns = [
     url(r'^$', IndexView.as_view(), name='index'),
     url(r'^series/', SeriesView.as_view(), name='series'),
-    url(r'^episode/(?P<pk>\d+)/$', Series_detail.as_view(), name= 'series_detail'),
+    url(r'^series/(?P<pk>\d+)/episodes/$', Series_detail.as_view(), name='series_detail'),
 
 ]

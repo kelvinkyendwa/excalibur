@@ -18,11 +18,13 @@ class SeriesView(ListView):
         context['now'] = timezone.now()
         return context
 
-class Series_detail(DetailView):
-    model = Episode
+class Series_detail(ListView):
 
     template_name = "pages/series_detail.html"
-    def get_context_data(self, **kwargs):
-        context = super(Series_detail, self).get_context_data(**kwargs)
-        context['now'] = timezone.now()
-        return context
+    # model = Episode
+    #
+    # def get_context_data(self, **kwargs):
+    #     context = super(Series_detail, self).get_context_data(**kwargs)
+    #     context['episode_list'] = Episode.objects.all()
+    #
+    #     return context

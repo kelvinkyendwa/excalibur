@@ -53,7 +53,7 @@
               <li class="nav-item"><a class="nav-link link" href="#">Movies</a></li>
               <li class="nav-item"><a class="nav-link link" href="#">Series</a></li>
               <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle" data-toggle="dropdown-submenu" href="#" aria-expanded="false">Trailers</a>
-                <div class="dropdown-menu"><a class="dropdown-item" href="#">Movies</a><a class="dropdown-item" href="#">Series</a></div>
+                <div class="dropdown-menu"><a class="dropdown-item" href="{% url 'forms:movies' %}">Movies</a><a class="dropdown-item" href="{% url 'series:series' %}">Series</a></div>
               </li>
             </ul>
             <button hidden="" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
