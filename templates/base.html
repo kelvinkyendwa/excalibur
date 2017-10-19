@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="{% static "assets/mobirise/css/mbr-additional.css" type="text/css" %}">
   <link rel="stylesheet" href="{% static "assets/socicon/css/styles.css" %}">
 
-  <title>Home</title>
+  <title>{% block title %}Home  {% endblock %}</title>
 
 </head>
 
@@ -40,7 +40,7 @@
 
             <div class="navbar-brand">
               <a href="#" class="navbar-logo"><img src="{% static "assets/images/excalibur-64x128.png" alt="Excalibur" %}"></a>
-              <a class="navbar-caption" href="https://mobirise.com">Excalibur</a>
+              <a class="navbar-caption" href="{% url 'forms:index' %}">Excalibur</a>
             </div>
 
           </div>
@@ -53,7 +53,7 @@
             <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar">
               <li class="nav-item"><a class="nav-link link" href="{% url 'forms:movies' %}">Movies</a></li>
               <li class="nav-item"><a class="nav-link link" href="{% url 'series:series' %}">Series</a></li>
-              <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle" data-toggle="dropdown-submenu" href="/excalibur/series/" aria-expanded="false">Trailers</a>
+              <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle" data-toggle="dropdown-submenu" href="{% url 'series:series' %}" aria-expanded="false">Trailers</a>
                 <div class="dropdown-menu"><a class="dropdown-item" href="{% url 'forms:movies' %}">Movies</a><a class="dropdown-item" href="{% url 'series:series' %}">Series</a></div>
               </li>
             </ul>
@@ -77,10 +77,10 @@
 
 
 
-<footer class="mbr-small-footer mbr-section mbr-section-nopadding" id="footer1-8" style="background-color: rgb(50, 50, 50); padding-top: 1.75rem; padding-bottom: 1.75rem;">
+<footer class="footer" style="background-color: rgb(50, 50, 50); padding-top: 1.75rem; padding-bottom: 1.75rem; bottom:0;  position: fixed; width: 100%; ">
 
     <div class="container">
-        <p class="text-xs-center">Copyright (c) 2017 Skafos.</p>
+        <p class="text-xs-center" style="color:white">Copyright (c) 2017 Kelvin Mitau.</p>
     </div>
 </footer>
 

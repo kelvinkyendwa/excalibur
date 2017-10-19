@@ -1,30 +1,14 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView
 from django.views.generic import FormView, DetailView
 from django.views.generic.list import ListView
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect
-from django.core.mail import send_mail
-from series.models import Series,Episode,Genres
-from django.utils import timezone
+from series.models import Series, Episode
 
 
 # Create your views here.
 class SeriesView(ListView):
     template_name = "pages/series.html"
     model = Series
-    def get_context_data(self, **kwargs):
-        context = super(SeriesView, self).get_context_data(**kwargs)
-        context['now'] = timezone.now()
-        return context
 
-class Series_detail(ListView):
-
-    template_name = "pages/series_detail.html"
-    # model = Episode
-    #
-    # def get_context_data(self, **kwargs):
-    #     context = super(Series_detail, self).get_context_data(**kwargs)
-    #     context['episode_list'] = Episode.objects.all()
-    #
-    #     return context
+def series_detail(request, pk):
+    episode_list = get_object_or_404(Episode, pk=article.id)
+    return render('pages/series_detail.html', episode_list)    
